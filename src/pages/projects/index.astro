@@ -1,0 +1,64 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import ProjectCard from '../../components/ProjectCard.tsx';
+
+const projects = [
+  {
+    id: 1,
+    title: "Ship Tip Series - ShipStation University",
+    summary: "'Ship Tip' video series aims to provide users with a quick overview of a product or feature. Over 50 videos in this series help merchants expedite their warehouse shipping process.",
+    image: "https://images.pexels.com/photos/4050315/pexels-photo-4050315.jpeg",
+    tags: ["Video Production", "E-Learning", "Technical Writing"]
+  },
+  {
+    id: 2,
+    title: "ShipStation Certification Program",
+    summary: "A multi-tier Certification program for internal and external use that blends mixed media for an accessible professional certification experience.",
+    image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg",
+    tags: ["Certification", "Mixed Media", "Training"]
+  },
+  {
+    id: 3,
+    title: "Muck Rack Help Center",
+    summary: "A completely revamped Help Center, built from bare bones external education and making the most out of an extremely simplified Help Center authoring tool.",
+    image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg",
+    tags: ["Technical Writing", "UX Design", "Documentation"]
+  },
+  {
+    id: 4,
+    title: "Muck Rack Education Videos",
+    summary: "Animated videos created in Camtasia using charming original characters from our creative team.",
+    image: "https://images.pexels.com/photos/3184393/pexels-photo-3184393.jpeg",
+    tags: ["Animation", "Video Production", "Education"]
+  },
+  {
+    id: 5,
+    title: "Roller Derby Rules Project",
+    summary: "A collaboration project with the Arizona Derby Dame Regulators for the 2023 Roller Rage tournament, educating skaters transferring from WFTDA to RDCL rulesets.",
+    image: "https://images.pexels.com/photos/2005992/pexels-photo-2005992.jpeg",
+    tags: ["Training", "Sports", "Documentation"]
+  }
+];
+---
+
+<MainLayout title="Projects | Alexandra Scarpello">
+  <div class="container mx-auto px-4 py-16">
+    <div class="max-w-6xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-serif font-bold mb-4">My Work</h1>
+      <p class="text-xl text-neutral-700 dark:text-neutral-300 mb-12">A showcase of my instructional design and educational content projects.</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projects.map(project => (
+          <ProjectCard 
+            id={project.id}
+            title={project.title}
+            summary={project.summary}
+            image={project.image}
+            tags={project.tags}
+            client:load
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+</MainLayout>

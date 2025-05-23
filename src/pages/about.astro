@@ -1,0 +1,53 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { Image } from 'astro:assets';
+---
+
+<MainLayout title="About | Alexandra Scarpello">
+  <div class="container mx-auto px-4 py-16">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-serif font-bold mb-8">About Me</h1>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div class="md:col-span-1">
+          <div class="bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden">
+            <img 
+              src="https://images.pexels.com/photos/3771089/pexels-photo-3771089.jpeg" 
+              alt="Alexandra Scarpello" 
+              class="w-full h-auto object-cover"
+              width="400"
+              height="600"
+            />
+          </div>
+        </div>
+        <div class="md:col-span-2">
+          <div class="prose prose-lg dark:prose-invert max-w-none">
+            <h2 class="text-3xl font-serif font-semibold mb-4">Alexandra Scarpello</h2>
+            <p class="text-xl leading-relaxed mb-6">
+              Kind of goofy. Lives in Austin, TX. Passionate about education. Lover of cats. Roller derby player.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mb-16">
+        <h2 class="text-3xl font-serif font-semibold mb-6">My Skills</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            { title: 'Video Production', icon: '🎥' },
+            { title: 'Technical Writing', icon: '📝' },
+            { title: 'E-learning Development', icon: '💻' },
+            { title: 'Content Strategy', icon: '📊' },
+            { title: 'Help Center Design', icon: '🔍' },
+            { title: 'Educational Programs', icon: '🎓' },
+          ].map(skill => (
+            <div class="bg-white dark:bg-neutral-800 p-6 rounded-lg shadow-sm border border-neutral-200 dark:border-neutral-700">
+              <div class="text-4xl mb-4">{skill.icon}</div>
+              <h3 class="text-xl font-semibold mb-2">{skill.title}</h3>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</MainLayout>

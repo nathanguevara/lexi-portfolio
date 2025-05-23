@@ -1,0 +1,69 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import BlogCard from '../../components/BlogCard.tsx';
+
+// In a real implementation, this would come from the CMS
+const blogPosts = [
+  {
+    id: 1,
+    title: "5 Instructional Design Trends Reshaping Corporate Training",
+    excerpt: "Explore how AI, microlearning, and immersive technologies are transforming how organizations approach employee development.",
+    date: "March 15, 2023",
+    image: "https://images.pexels.com/photos/935949/pexels-photo-935949.jpeg",
+    tags: ["Trends", "Corporate Training", "Technology"]
+  },
+  {
+    id: 2,
+    title: "The Science of Learning: How to Apply Cognitive Principles to Course Design",
+    excerpt: "Learn how to leverage cognitive load theory, spaced repetition, and other evidence-based approaches in your instructional design.",
+    date: "February 8, 2023",
+    image: "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg",
+    tags: ["Learning Science", "Course Design", "Best Practices"]
+  },
+  {
+    id: 3,
+    title: "Designing Accessible E-Learning: A Comprehensive Guide",
+    excerpt: "Practical strategies to ensure your digital learning materials are accessible to all learners, including those with disabilities.",
+    date: "January 20, 2023",
+    image: "https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg",
+    tags: ["Accessibility", "E-Learning", "Inclusion"]
+  },
+  {
+    id: 4,
+    title: "From SME to Learning Experience: Effective Knowledge Transfer Strategies",
+    excerpt: "Bridge the gap between subject matter experts and engaging learning experiences with these collaboration techniques.",
+    date: "December 5, 2022",
+    image: "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg",
+    tags: ["Knowledge Transfer", "Collaboration", "Process"]
+  }
+];
+---
+
+<MainLayout title="Blog | Instructional Design Portfolio">
+  <div class="container mx-auto px-4 py-16">
+    <div class="max-w-6xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-serif font-bold mb-4">Instructional Design Insights</h1>
+      <p class="text-xl text-neutral-700 dark:text-neutral-300 mb-12">Articles, research, and thoughts on learning design and educational technology.</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        {blogPosts.map(post => (
+          <BlogCard 
+            id={post.id}
+            title={post.title}
+            excerpt={post.excerpt}
+            date={post.date}
+            image={post.image}
+            tags={post.tags}
+            client:load
+          />
+        ))}
+      </div>
+      
+      <div class="text-center">
+        <button class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-colors">
+          Load More Articles
+        </button>
+      </div>
+    </div>
+  </div>
+</MainLayout>

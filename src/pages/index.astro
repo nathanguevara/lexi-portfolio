@@ -1,0 +1,10 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Hero from '../components/Hero.tsx';
+import FeaturedProjects from '../components/FeaturedProjects.tsx';
+---
+
+<MainLayout title="Home | Alexandra Scarpello">
+  <Hero client:load />
+  <FeaturedProjects client:load />
+</MainLayout>
